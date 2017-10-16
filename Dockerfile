@@ -28,7 +28,11 @@ RUN apk --update --no-cache add \
     echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc && \
     echo 'eval "$(pyenv init -)"' >> ~/.bashrc && \
     apk del --purge alpine-sdk && \
-    mkdir /app
+    mkdir /app && \
+    sed -i -e "s/bin\/ash/bin\/bash/" /etc/passwd
 
+VOLUME ["/app"]
 WORKDIR /app
-ENTRYPOINT ['/bin/bash', '-c', 'python']
+
+CMD ["-"]
+ENTRYPOINT ["python"]
