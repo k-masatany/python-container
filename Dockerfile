@@ -18,16 +18,16 @@ RUN apk --update --no-cache add \
         openssl-dev \
         sqlite-dev \
         wget \
-        zlib-dev &&
-    git clone https://github.com/yyuu/pyenv.git ~/.pyenv &&
-    pyenv --version &&
-    pyenv install $PYTHON_VERSION &&
-    pyenv global $PYTHON_VERSION &&
-    python -V &&
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc &&
-    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc &&
-    echo 'eval "$(pyenv init -)"' >> ~/.bashrc &&
-    apk del --purge alpine-sdk &&
+        zlib-dev && \
+    git clone https://github.com/yyuu/pyenv.git ~/.pyenv && \
+    pyenv --version && \
+    pyenv install $PYTHON_VERSION && \
+    pyenv global $PYTHON_VERSION && \
+    python -V && \
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc && \
+    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc && \
+    echo 'eval "$(pyenv init -)"' >> ~/.bashrc && \
+    apk del --purge alpine-sdk && \
     mkdir /app
 
 WORKDIR /app
