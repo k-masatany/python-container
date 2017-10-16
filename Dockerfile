@@ -31,4 +31,4 @@ RUN apk --update --no-cache add \
     mkdir /app
 
 WORKDIR /app
-ENTRYPOINT ['python']
+ENTRYPOINT ['/bin/bash', '-c', 'python']
